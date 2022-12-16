@@ -1,11 +1,11 @@
 function connect() {
 
 
-    var searchText = document.getElementById('Search').value; 
+    var searchText = document.getElementById('Search').value;
+    var quantity = parseInt (document.getElementById('mealnumber').value);
+ 
     var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-    var mealNumber = document.getElementById('mealNumber').value;
-
-
+   
     fetch(url)
     .then(res => res.json() )
     .then(data => showData(data));
