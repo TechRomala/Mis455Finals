@@ -1,27 +1,27 @@
 function connect() {
 
-
-    var searchText = document.getElementById('Search').value;
-    var quantity = parseInt (document.getElementById('mealnumber').value);
+    var searchText = document.getElementById("Search").value;
+    var quantity =parseInt (document.getElementById("view").value);
  
     var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
    
     fetch(url)
     .then(res => res.json() )
-    .then(data => showData(data));
+    .then(data => showData(data,quantity));
    
-    document.getElementById('Search').value = ""; 
-    document.getElementById('mealNumber').value= "";
+    document.getElementById("Search").value = ""; 
+    document.getElementById("view").value= "";
+
 }
-   
-function showData(data){
+
+function showData(data,view ){
    
     console.log("data from showData Function", data);
    
-    var oldContent = document.getElementById('container');
+    var oldContent = document.getElementById("container");
     oldContent.textContent= "";
    
-    for (var i=0; i< data.meals.length; i++){
+    for (var i=0; i< view; i++){
         console.log(data.meals[i]);
    
         var newDiv = document.createElement('div');
